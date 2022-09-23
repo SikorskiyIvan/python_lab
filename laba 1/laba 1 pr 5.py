@@ -6,6 +6,7 @@ databade_of_product=dict({"Аккамулятор" : ["Германия", 350, 5
                           "Защита двигателя" : ["Франция", 87, 4],
                           "Подкрылок" : ["Бельгия", 16, 1]
                           })
+full_price = 0
 stringName='Магазин автозапчастей'
 while True:
     print("+--------------------------------------------------+")
@@ -16,7 +17,8 @@ while True:
             '3)Просмотр количества: название – количество',
             '4)Всю информацию',
             '5)Покупка',
-            '6)До Свидания']
+            '6)До Свидания',
+            '7)Конечный чек']
     for i in range(len(stringMenu)):
         print("|{:^50}|".format(stringMenu[i]))
     print("+--------------------------------------------------+")
@@ -25,7 +27,7 @@ while True:
 
     while True:
         answer = int(input("Ваш выбор--> "))
-        if answer<1 or answer>6:
+        if answer<1 or answer>7:
             print("Неверный выбор, попробуйте ещё раз")
         else:
             break
@@ -60,6 +62,7 @@ while True:
 
             print("Покупка завершена!")
             print("Вы купили товар %s на сумму %d $" %(productName, databade_of_product.get(productName)[1]*count))
+            full_price += databade_of_product.get(productName)[1] * count
             old_value = databade_of_product.pop(productName)
             old_value[2] -= count
             if old_value[2] != 0:
@@ -69,3 +72,5 @@ while True:
 
     elif answer == 6:
         break
+    elif answer == 7:
+        print(full_price, "$")
