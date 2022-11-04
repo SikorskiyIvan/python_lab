@@ -52,7 +52,6 @@ while True:
             for i in range(len(list_res)):
                 print(f"{i + 1} сотрудник")
                 list_res[i].print_info()
-                i = i + 1
         else: print("Список сотрудников пуст.")
     elif choice == 0:
         break
