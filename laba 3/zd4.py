@@ -13,10 +13,9 @@ with open("data_zd4.txt", 'r', encoding="utf-8") as file:
         if tmp > 0:
             summ += tmp
             m += 1
-    average = summ / m
-    print("Средняя прибыль:", average)
+    print("Средняя прибыль:", summ / (m - 1))
     diction = {}
-    list1 = [diction, {"average_profit": average}]
+    list1 = [diction, {"average_profit": summ / (m - 1)}]
     file.seek(0)
     str = file.readline()
     while str:
