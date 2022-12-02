@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+np.seterr(invalid='ignore')
+plt.style.use('ggplot')
+x, y = np.meshgrid(np.linspace(-5, 5, 100), np.linspace(-5, 5, 100))
+figure = plt.figure()
+ax1 = figure.add_subplot(2, 3, 1, projection='3d')
+z1 = np.power(x, 0.25) + np.power(y, 0.25)
+ax1.plot_surface(x, y, z1)
+plt.title("1")
+ax2 = figure.add_subplot(2, 3, 2, projection='3d')
+z2 = np.power(x, 2) - np.power(y, 2)
+ax2.plot_surface(x, y, z2)
+plt.title("2")
+ax3 = figure.add_subplot(2, 3, 3, projection='3d')
+z3 = 2*x + 3*y
+ax3.plot_surface(x, y, z3)
+plt.title("3")
+ax4 = figure.add_subplot(2, 3, 4, projection='3d')
+z4 = np.power(x, 2) + np.power(y, 2)
+ax4.plot_surface(x, y, z4)
+plt.title("4")
+ax5 = figure.add_subplot(2, 3, 5, projection='3d')
+z5 = 2 + 2*x + 2*y - np.power(x, 2) - np.power(y, 2)
+ax5.plot_surface(x, y, z5)
+plt.title("5")
+plt.show()
+
